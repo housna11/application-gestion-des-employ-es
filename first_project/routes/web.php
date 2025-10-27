@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
-Route::get('/', function () {
-    return view('Accueil');
+Route::get('/Post', function () {
+    return view('Post');
 });
-Route:: get('/Employes', function (){
-    return view('Employes');
-});
-Route::get('/Ajouter',function(){
-    return view('Ajouter');
-});
+Route::redirect('/', 'post');
+
+Route::resource('Post',PostController::class);
+
+
